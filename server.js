@@ -4,12 +4,10 @@ const dotenv = require("dotenv");
 const logger = require("morgan");
 const cors = require("cors");
 
-const petRoutes = require("./routes/petRoutes");
-
 dotenv.config();
 const app = express();
 
-mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.DB_URL);
 mongoose.connection.on("connected", () => {
   console.log("connected to mongoDB");
 });
