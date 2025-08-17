@@ -25,6 +25,10 @@ const movieSchema = new mongoose.Schema({
 });
 
 const ListSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
   movie: [movieSchema],
 });
 
