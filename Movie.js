@@ -28,5 +28,5 @@ const ListSchema = new mongoose.Schema({
   movie: [movieSchema],
 });
 
-const List = model("List", ListSchema);
+const List = mongoose.model("List", ListSchema);
 module.exports = List;
