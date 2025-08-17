@@ -10,3 +10,40 @@ const create = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+//get all lists
+const showAll = async (req, res) => {
+  try {
+    const allLists = await List.find();
+    res.status(200).json(allLists);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//edit lists
+const edit = async (req, res) => {
+  try {
+    const foundList = List.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.status(200).json(foundList);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const deleteList = async (req, res) => {
+  try {
+    const foundList = List.findByIdAndDelete(req.params.id);
+    res.status(200).json(foundList);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+module.exports = {
+  create,
+  showAll,
+  edit,
+  deleteList,
+};
