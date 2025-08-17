@@ -1,11 +1,18 @@
 const Movie = require("../Movie");
 const axios = require("axios");
+const apiKey = process.env.api_key;
 
-apiKey = process.env.api_key;
-const search = async () => {
-  const result = await axios.get(
-    `${process.env.tmdbURL}search/movie?query=call&include_adult=false&language=en-US&page=1'&api_key=${apiKEY}`
-  );
-  console.log(result.data);
+//searching
+const search = async (req, res) => {
+  try {
+    const result = await axios.get(
+      `${process.env.tmdbURL}search/movie?query=call&include_adult=false&language=en-US&page=1'&api_key=${apiKey}`
+    );
+    res.status(201).json(result.data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
-testFunction();
+module.exports = {
+  search,
+};
