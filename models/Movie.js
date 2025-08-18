@@ -22,6 +22,7 @@ const movieSchema = new mongoose.Schema({
   relaceDate: {
     type: Date,
   },
+  review:[reviewSchema],
 });
 
 const ListSchema = new mongoose.Schema({
@@ -31,6 +32,20 @@ const ListSchema = new mongoose.Schema({
   },
   movie: [movieSchema],
 });
+
+const reviewSchema = new mongoose.Schema({
+  reating: {
+    type: Number,
+  },
+  comment: {
+    type: String,
+  },
+  mood: {
+    type: String,
+  },
+});
+
+
 
 const List = mongoose.model("List", ListSchema);
 module.exports = List;
