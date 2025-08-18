@@ -50,4 +50,10 @@ const ListSchema = new mongoose.Schema({
 
 
 const List = mongoose.model("List", ListSchema);
-module.exports = List;
+const Review=mongoose.model("Review",reviewSchema)
+const Movie=mongoose.model("Movie",movieSchema)
+module.exports = {
+  List,
+  Review,
+  Movie
+}

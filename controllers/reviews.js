@@ -1,4 +1,7 @@
-const Review = require("../models/review");
+const Review = require("../models/Movie");
+const axios = require("axios");
+
+
 async function creatreview(req, res) {
   try {
     const createdreview = await Review.create(req.body);
