@@ -1,4 +1,4 @@
-const List = require("../Movie");
+const List = require("../models/Movie");
 const axios = require("axios");
 
 //create a list

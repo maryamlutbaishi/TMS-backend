@@ -1,4 +1,4 @@
-const Review=require('./models/review')
+const Review=require('../models/review')
 async function creatreview(req,res) {
      try{
         
