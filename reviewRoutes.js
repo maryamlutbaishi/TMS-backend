@@ -1,6 +1,6 @@
 const express=require('express')
 const router = express.Router()
-const reviewController=require('../reviews')
+const reviewController=require('./reviews')
 
 router.post('/', reviewController.creatreview)
 router.get('/',reviewController.reviewIndex)
