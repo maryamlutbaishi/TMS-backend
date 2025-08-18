@@ -4,6 +4,7 @@ const axios = require("axios");
 
 async function creatreview(req, res) {
   try {
+    console.log(req.body)
     const createdreview = await Review.create(req.body);
     res.status(201).json(creatreview);
   } catch (err) {
