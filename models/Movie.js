@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+const reviewSchema = new mongoose.Schema({
+  reating: {
+    type: Number,
+  },
+  comment: {
+    type: String,
+  },
+  mood: {
+    type: String,
+  },
+});
+
 const movieSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -33,17 +45,7 @@ const ListSchema = new mongoose.Schema({
   movie: [movieSchema],
 });
 
-const reviewSchema = new mongoose.Schema({
-  reating: {
-    type: Number,
-  },
-  comment: {
-    type: String,
-  },
-  mood: {
-    type: String,
-  },
-});
+
 
 
 
