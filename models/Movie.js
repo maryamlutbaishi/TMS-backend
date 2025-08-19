@@ -46,8 +46,9 @@ const ListSchema = new mongoose.Schema({
 });
 
 const List = mongoose.model("List", ListSchema);
-// const Review=mongoose.model("Review",reviewSchema)
-// const Movie=mongoose.model("Movie",movieSchema)
-module.exports = List;
-// Review,
-// Movie
+const Review=mongoose.model("Review",reviewSchema)
+const Movie=mongoose.model("Movie",movieSchema)
+module.exports = List
+module.exports=Review
+
+
