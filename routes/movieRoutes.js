@@ -4,4 +4,5 @@ const movieController = require("../controllers/movieControlller");
 
 router.get("/search", movieController.search);
 router.get("/:id",movieController.details)
+router.get("/:id/credits", movieController.movieCast)
 module.exports = router;
