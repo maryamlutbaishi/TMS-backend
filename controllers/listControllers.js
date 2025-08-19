@@ -3,7 +3,9 @@ const axios = require("axios");
 
 //create a list
 const create = async (req, res) => {
+  console.log("You are in create controller");
   try {
+    console.log("The req.body", req.body.name);
     const createdList = await List.create(req.body);
     res.status(201).json(createdList);
   } catch (error) {
@@ -15,6 +17,7 @@ const create = async (req, res) => {
 const showAll = async (req, res) => {
   try {
     const allLists = await List.find();
+    console.log(allLists);
     res.status(200).json(allLists);
   } catch (error) {
     res.status(500).json({ error: error.message });
