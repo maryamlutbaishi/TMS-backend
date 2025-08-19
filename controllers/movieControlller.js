@@ -13,7 +13,6 @@ const search = async (req, res) => {
       );
       allResults = [...allResults, ...result.data.results];
     }
-    console.log(allResults);
     res.status(201).json(allResults);
   } catch (error) {
     res.status(500).json({ error: error.message });
