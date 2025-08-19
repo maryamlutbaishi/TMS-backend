@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema({
-  reting: {
+  rating: {
     type: Number,
   },
   comment: {
@@ -34,7 +34,7 @@ const movieSchema = new mongoose.Schema({
   relaceDate: {
     type: Date,
   },
-  review:[reviewSchema],
+  review: [reviewSchema],
 });
 
 const ListSchema = new mongoose.Schema({
@@ -45,13 +45,10 @@ const ListSchema = new mongoose.Schema({
   movie: [movieSchema],
 });
 
-
-
-
-
 const List = mongoose.model("List", ListSchema);
 const Review=mongoose.model("Review",reviewSchema)
 const Movie=mongoose.model("Movie",movieSchema)
 module.exports = List
 module.exports=Review
+
 
