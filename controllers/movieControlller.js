@@ -19,31 +19,34 @@ const search = async (req, res) => {
   }
 };
 
-const details=async (req,res) =>{
-   try {
-    const movieId= req.params.id;
+const details = async (req, res) => {
+  try {
+    const movieId = req.params.id;
+    const movieType = req.query.media_type;
+    console.log("params:", req.query);
     const result = await axios.get(
       `${process.env.tmdbURL}movie/${movieId}?api_key=${apiKey}&language=en-US`
     );
     res.status(201).json(result.data);
   } catch (error) {
     res.status(500).json({ error: error.message });
-}}
-const movieCast=async (req,res) =>{
-   try {
-    const movieId= req.params.id;
+  }
+};
+const movieCast = async (req, res) => {
+  try {
+    const movieId = req.params.id;
     const result = await axios.get(
       `${process.env.tmdbURL}movie/${movieId}/credits?api_key=${apiKey}&language=en-US`
     );
     res.status(201).json(result.data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({ error: error.message });
-}
-}
+  }
+};
 
 module.exports = {
   search,
   details,
-  movieCast
+  movieCast,
 };
