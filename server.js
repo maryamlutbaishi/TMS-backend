@@ -7,7 +7,7 @@ const app = express();
 const movieRoutes = require("./routes/movieRoutes");
 const listRoutes = require("./routes/listRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
-
+const authRoutes =require("./routes/authRoutes")
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(logger("dev"));
@@ -15,7 +15,7 @@ app.use(logger("dev"));
 app.use("/movies", movieRoutes);
 app.use("/list", listRoutes);
 app.use("/review", reviewRoutes);
-
+app.use("/auth",authRoutes)
 mongoose.connect(process.env.DB_URL);
 mongoose.connection.on("connected", () => {
   console.log("connected to mongoDB");

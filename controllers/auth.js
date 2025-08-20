@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const User = require("../models/User");
+const {User} = require("../models/Movie");
 
 const SECRET = "supersecret"; // use process.env.SECRET in production
 
@@ -24,6 +24,7 @@ exports.register = async (req, res) => {
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -50,6 +51,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign(payload, SECRET, { expiresIn: "1h" }); //Look at the docs for more 'expires in' options
     res.json({ token });
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: "Server error" });
   }
 };
