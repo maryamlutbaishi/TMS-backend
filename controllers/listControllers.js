@@ -1,11 +1,9 @@
-const List = require("../models/Movie");
+const { List } = require("../models/Movie");
 const axios = require("axios");
 
 //create a list
 const create = async (req, res) => {
-  console.log("You are in create controller");
   try {
-    console.log("The req.body", req.body.name);
     const createdList = await List.create(req.body);
     res.status(201).json(createdList);
   } catch (error) {

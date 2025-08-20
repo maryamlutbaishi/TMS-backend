@@ -1,4 +1,4 @@
-const Movie = require("../models/Movie");
+const { Movie } = require("../models/Movie");
 const axios = require("axios");
 const apiKey = process.env.api_key;
 
@@ -22,8 +22,6 @@ const search = async (req, res) => {
 const details = async (req, res) => {
   try {
     const movieId = req.params.id;
-    const movieType = req.query.media_type;
-    console.log("params:", req.query);
     const result = await axios.get(
       `${process.env.tmdbURL}movie/${movieId}?api_key=${apiKey}&language=en-US`
     );
