@@ -19,6 +19,15 @@ const search = async (req, res) => {
   }
 };
 
+const create = async (req, res) => {
+  try {
+    const createdMovie = await Movie.create(req.body);
+    res.status(201).json(createdMovie);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 const details = async (req, res) => {
   try {
     const movieId = req.params.id;
@@ -47,4 +56,5 @@ module.exports = {
   search,
   details,
   movieCast,
+  create,
 };
