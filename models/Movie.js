@@ -13,6 +13,10 @@ const reviewSchema = new mongoose.Schema({
 });
 
 const movieSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -21,20 +25,6 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  information: {
-    type: String,
-    required: true,
-  },
-  cast: {
-    type: [String],
-  },
-  rating: {
-    type: Number,
-  },
-  relaceDate: {
-    type: Date,
-  },
-  review: [reviewSchema],
 });
 
 const ListSchema = new mongoose.Schema({
