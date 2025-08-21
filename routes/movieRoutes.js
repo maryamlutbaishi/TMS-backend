@@ -7,3 +7,5 @@ router.get("/:id", movieController.details);
 router.get("/:id/credits", movieController.movieCast);
 router.post("/add", movieController.create);
 module.exports = router;
+
+// route for the add

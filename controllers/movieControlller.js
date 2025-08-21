@@ -1,4 +1,5 @@
 const { Movie } = require("../models/Movie");
+const { User } = require("../models/Movie");
 const axios = require("axios");
 const apiKey = process.env.api_key;
 

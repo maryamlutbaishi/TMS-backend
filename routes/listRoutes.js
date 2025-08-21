@@ -4,9 +4,12 @@ const listController = require("../controllers/listControllers");
 const secureRoute = require("../middleware/secureRoute");
 
 router.post("/new", secureRoute, listController.create);
-router.get("/", secureRoute, listController.showAll);
-router.get("/:id", secureRoute, listController.oneList);
-router.put("/:id", secureRoute, listController.edit);
-router.delete("/:id", secureRoute, listController.deleteList);
+router.get("/:userId", secureRoute, listController.showAll);
+router.post("/:userId/:listName/add", secureRoute, listController.addMovie);
+router.delete(
+  "/:userId/:listName/:movieId",
+  secureRoute,
+  listController.removeMovie
+);
 
 module.exports = router;
