@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const SECRET = "supersecret"; // should be process.env.SECRET
+const SECRET = process.env.JWT_SECRET; // should be process.env.SECRET
 
 module.exports = function secureRoute(req, res, next) {
   const authHeader = req.headers["authorization"];

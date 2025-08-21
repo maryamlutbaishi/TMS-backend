@@ -1,4 +1,5 @@
 const { Movie } = require("../models/Movie");
+const { User } = require("../models/Movie");
 const axios = require("axios");
 const apiKey = process.env.api_key;
 
@@ -28,6 +29,9 @@ const create = async (req, res) => {
   }
 };
 
+//------------------------------------------------------------------------
+
+//------------------------------------------------------------------------
 const details = async (req, res) => {
   try {
     const movieId = req.params.id;

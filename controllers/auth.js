@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const {User} = require("../models/Movie");
+const { User } = require("../models/Movie");
 
-const SECRET = "supersecret"; // use process.env.SECRET in production
+const SECRET = process.env.JWT_SECRET; // use process.env.SECRET in production
 
 // POST /auth/register
 exports.register = async (req, res) => {
@@ -24,7 +24,7 @@ exports.register = async (req, res) => {
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -47,11 +47,14 @@ exports.login = async (req, res) => {
     const payload = {
       id: user._id,
       // Add anything else that you want to put into the JWT token here
+      // indeed you must put something here wow
+
+      username: user.username,
     };
     const token = jwt.sign(payload, SECRET, { expiresIn: "1h" }); //Look at the docs for more 'expires in' options
     res.json({ token });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({ message: "Server error" });
   }
 };
